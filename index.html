@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Grebner — Lektorat & Manuskriptüberarbeitung</title>
+<meta name="description" content="Maria Grebner verwandelt Manuskripte in fertige Bücher. Lektorat, Überarbeitung und redaktionelle Begleitung für Autor:innen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ECE6D6;
+    --paper-alt: #F5F1E4;
+    --ink: #2A241C;
+    --ink-soft: #55503f;
+    --wine: #7C3728;
+    --wine-soft: #a4574a;
+    --sage: #5B6B52;
+    --rule: #d9d0b8;
+    --max-w: 640px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Literata', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--wine); color: var(--paper-alt); }
+
+  a { color: var(--wine); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--wine-soft); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    padding: 28px 0 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-head-row {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+  }
+  nav.top a {
+    font-family: 'Literata', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-left: 18px;
+  }
+  nav.top a:hover { color: var(--wine); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 72px 0 64px;
+  }
+  .eyebrow {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--wine);
+    display: block;
+    margin-bottom: 6px;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.18;
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+  }
+  .edit-mark {
+    position: relative;
+    white-space: nowrap;
+  }
+  .edit-mark .struck {
+    color: var(--ink-soft);
+    text-decoration: line-through;
+    text-decoration-color: var(--wine);
+    text-decoration-thickness: 2px;
+    opacity: 0.55;
+  }
+  .edit-mark .replacement {
+    font-family: 'Caveat', cursive;
+    color: var(--wine);
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-left: 10px;
+    display: inline-block;
+    transform: rotate(-2deg);
+  }
+
+  .hero p.lede {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 54ch;
+  }
+
+  .cta-row { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: 'Literata', serif;
+    font-size: 0.98rem;
+    padding: 12px 22px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn.primary { background: var(--wine); border-color: var(--wine); color: var(--paper-alt); }
+  .btn.primary:hover { background: var(--wine-soft); border-color: var(--wine-soft); color: var(--paper-alt); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper-alt); }
+
+  /* ---------- Section shared ---------- */
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .section-label {
+    font-family: 'Literata', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 14px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 0 0 22px;
+  }
+
+  /* ---------- About ---------- */
+  .about p { color: var(--ink-soft); }
+  .about .placeholder-note, .services .placeholder-note, .contact .placeholder-note {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.82rem;
+    font-family: 'Literata', serif;
+    color: var(--sage);
+    background: var(--paper-alt);
+    border: 1px dashed var(--sage);
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+
+  /* ---------- Services ---------- */
+  .service-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .service-list li {
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 18px;
+  }
+  .service-list li:first-child { border-top: none; }
+  .service-mark {
+    font-family: 'Fraunces', serif;
+    color: var(--wine);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+  .service-list h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.12rem;
+    margin: 0 0 4px;
+  }
+  .service-list p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+  /* ---------- Experience / quote ---------- */
+  .experience blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 12px;
+    padding-left: 20px;
+    border-left: 3px solid var(--wine);
+  }
+  .experience cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .stat-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2.1rem;
+    color: var(--wine);
+    display: block;
+    line-height: 1;
+  }
+  .stat .label {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    gap: 10px;
+  }
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .contact-row:first-child { border-top: none; }
+  .contact-row .k {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+  .contact-row .v { font-size: 1.05rem; }
+
+  footer {
+    padding: 34px 0 50px;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16.5px; }
+    .site-head-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    nav.top a { margin-left: 0; margin-right: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="site-head-row">
+    <span class="brand">Maria Grebner</span>
+    <nav class="top">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#erfahrung">Erfahrung</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow">Lektorat & Manuskriptüberarbeitung</span>
+    <h1>
+      Aus einem Manuskript<br>
+      <span class="edit-mark"><span class="struck">wird</span><span class="replacement">entsteht</span></span> ein Buch.
+    </h1>
+    <p class="lede">
+      Ich überarbeite Manuskripte mit einem klaren Blick für Sprache, Struktur und Stimme —
+      damit aus einem guten Text ein Buch wird, das seine Leser:innen findet.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#kontakt">Projekt anfragen</a>
+      <a class="btn ghost" href="#leistungen">Leistungen ansehen</a>
+    </div>
+  </section>
+
+  <section class="about wrap" id="ueber-mich">
+    <p class="section-label">Über mich</p>
+    <h2>Wer hier liest und schreibt</h2>
+    <p>
+      [Hier folgt eine kurze, persönliche Vorstellung: Wie sind Sie zum Lektorat gekommen,
+      welche Genres liegen Ihnen besonders, was zeichnet Ihre Arbeitsweise aus. Zwei bis
+      drei Sätze reichen — dieser Abschnitt darf ruhig persönlich klingen.]
+    </p>
+    <span class="placeholder-note">Platzhaltertext — bitte ersetzen</span>
+  </section>
+
+  <section class="services wrap" id="leistungen">
+    <p class="section-label">Leistungen</p>
+    <h2>Womit ich Ihnen helfe</h2>
+    <ul class="service-list">
+      <li>
+        <span class="service-mark">—</span>
+        <div>
+          <h3>Lektorat</h3>
+          <p>Sprachliche und stilistische Überarbeitung, Satz für Satz — für einen Text, der klingt, wie er soll.</p>
+        </div>
+      </li>
+      <li>
+        <span class="service-mark">—</span>
+        <div>
+          <h3>Manuskriptüberarbeitung</h3>
+          <p>Struktur, Aufbau und roter Faden im Blick: Wenn ein Manuskript neu geordnet werden muss, um zu tragen.</p>
+        </div>
+      </li>
+      <li>
+        <span class="service-mark">—</span>
+        <div>
+          <h3>Redaktionelle Begleitung</h3>
+          <p>Von der ersten Fassung bis zur Druckreife — als Ansprechpartnerin während des gesamten Prozesses.</p>
+        </div>
+      </li>
+    </ul>
+    <span class="placeholder-note">Leistungen bei Bedarf anpassen oder ergänzen</span>
+  </section>
+
+  <section class="experience wrap" id="erfahrung">
+    <p class="section-label">Erfahrung</p>
+    <h2>Woran ich gearbeitet habe</h2>
+    <blockquote>
+      „[Platz für ein kurzes Zitat einer Autorin oder eines Autors, das die Zusammenarbeit beschreibt.]"
+      <br><cite>— [Name, Titel des Buches]</cite>
+    </blockquote>
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">[X]</span>
+        <span class="label">bearbeitete Manuskripte</span>
+      </div>
+      <div class="stat">
+        <span class="num">[X]</span>
+        <span class="label">Jahre Erfahrung</span>
+      </div>
+    </div>
+    <span class="placeholder-note">Zahlen und Zitat bitte ergänzen</span>
+  </section>
+
+  <section class="contact wrap" id="kontakt">
+    <p class="section-label">Kontakt</p>
+    <h2>Erzählen Sie mir von Ihrem Manuskript</h2>
+    <p style="color:var(--ink-soft); max-width: 50ch;">
+      Ob fertiges Manuskript oder erste Idee — schreiben Sie mir gerne, ich melde mich zeitnah zurück.
+    </p>
+    <div class="contact-grid" style="margin-top:24px;">
+      <div class="contact-row">
+        <span class="k">E-Mail</span>
+        <span class="v"><a href="mailto:name@beispiel.de">name@beispiel.de</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="k">Standort</span>
+        <span class="v">Deutschland</span>
+      </div>
+    </div>
+    <span class="placeholder-note">E-Mail und Standort bitte ersetzen</span>
+  </section>
+</main>
+
+<footer class="wrap">
+  © <span id="year"></span> Maria Grebner · Lektorat & Manuskriptüberarbeitung
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
